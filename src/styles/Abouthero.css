@@ -1,0 +1,255 @@
+/* ─────────────────────────────────────────
+   ABOUT HERO  ·  Orchid Builders
+   Brand: dark bg + magenta/purple accent
+   ───────────────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Syne:wght@400;500;600;700;800&display=swap');
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes lineSlide {
+    from { transform: scaleX(0); opacity: 0; }
+    to   { transform: scaleX(1); opacity: 1; }
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* ══════════════════════════════
+   HERO SECTION
+══════════════════════════════ */
+.page-hero {
+    position: relative;
+    height: 120px;           /* ← was 140px — way too short */
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    top: 60px;
+}
+
+/* Background image */
+.page-hero-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 35%;
+    display: block;
+    filter: brightness(0.55) saturate(0.8);
+    transform: scale(1.04);
+    transition: transform 8s ease;
+}
+.page-hero:hover .page-hero-img {
+    transform: scale(1.0);
+}
+
+/* Brand overlay — diagonal magenta/purple + bottom dark fade */
+.page-hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+        linear-gradient(
+            110deg,
+            rgba(142, 42, 106, 0.92) 0%,
+            transparent 38%
+        )
+}
+
+/* Watermark year — top right */
+.page-hero-badge {
+    position: absolute;
+    top: 36px;
+    right: 80px;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    opacity: 0;
+    animation: fadeIn 0.8s 0.8s ease forwards;
+    pointer-events: none;
+    user-select: none;
+}
+.badge-year {
+    font-family: 'Anton', sans-serif;
+    font-size: 72px;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.06);
+    letter-spacing: -2px;
+}
+.badge-since {
+    font-family: 'Syne', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.2);
+}
+
+/* Text content — bottom left */
+.page-hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: 0 80px 52px;
+}
+
+/* Breadcrumb */
+.page-hero-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 18px;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.15s ease forwards;
+}
+.page-hero-breadcrumb a {
+    color: #e07ab0;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.page-hero-breadcrumb a:hover { color: #fff; }
+
+.breadcrumb-sep {
+    color: rgba(255, 255, 255, 0.22);
+    font-size: 14px;
+    font-weight: 400;
+}
+.breadcrumb-cur { color: #fff; }
+
+/* Accent line above heading */
+.page-hero-line {
+    width: 48px;
+    height: 2.5px;
+    background: linear-gradient(90deg, #c0356e, #e07ab0);
+    border-radius: 2px;
+    margin-bottom: 20px;
+    transform-origin: left;
+    animation: lineSlide 0.7s 0.3s ease forwards;
+    transform: scaleX(0);
+    opacity: 0;
+}
+
+/* Heading */
+.page-hero-content h1 {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(56px, 7vw, 96px);
+    line-height: 0.92;
+    letter-spacing: 0px;
+    color: #fff;
+    margin: 0;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.4s ease forwards;
+}
+
+/* ══════════════════════════════
+   STATS STRIP (below hero)
+══════════════════════════════ */
+.page-hero-strip {
+    background: #0d0d12;          /* match your site dark bg */
+    border-top: 0.5px solid rgba(255, 255, 255, 0.07);
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.07);
+    padding: 0 80px;
+    display: flex;
+    align-items: stretch;
+    height: 64px;
+}
+
+.strip-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-right: 28px;
+    margin-right: 28px;
+    border-right: 0.5px solid rgba(255, 255, 255, 0.08);
+}
+.strip-item:last-child {
+    border-right: none;
+    margin-left: auto;
+    margin-right: 0;
+    padding-right: 0;
+}
+
+.strip-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #c0356e;
+    flex-shrink: 0;
+}
+
+.strip-label {
+    font-family: 'Syne', sans-serif;
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.3);
+    white-space: nowrap;
+}
+
+.strip-val {
+    font-family: 'Anton', sans-serif;
+    font-size: 20px;
+    color: #fff;
+    letter-spacing: 0.5px;
+    margin-left: auto;
+    padding-left: 12px;
+}
+.strip-val sup {
+    font-size: 11px;
+    color: #c0356e;
+    vertical-align: super;
+}
+
+.strip-location {
+    font-family: 'Syne', sans-serif;
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.15);
+}
+
+.about-h2{
+    font-size: 40px;
+}
+
+/* ══════════════════════════════
+   RESPONSIVE
+══════════════════════════════ */
+@media (max-width: 860px) {
+    .page-hero { height: 340px; }
+    .page-hero-content { padding: 0 32px 40px; }
+    .page-hero-badge { right: 32px; }
+    .page-hero-strip { padding: 0 32px; }
+}
+
+@media (max-width: 560px) {
+    .page-hero { height: 280px; }
+    .page-hero-content { padding: 0 20px 32px; }
+    .page-hero-badge { display: none; }
+    .page-hero-strip {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 14px 20px;
+        gap: 14px;
+    }
+    .strip-item {
+        border-right: none;
+        margin: 0;
+        padding: 0;
+    }
+    .strip-item:last-child { margin: 0; }
+}
