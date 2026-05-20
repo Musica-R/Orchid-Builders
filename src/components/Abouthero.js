@@ -37,30 +37,6 @@ export default function AboutHero() {
                 </div>
             </section>
 
-            {/* ══ STATS STRIP ══ */}
-            {/* <div className="page-hero-strip">
-                <div className="strip-item">
-                    <span className="strip-dot" />
-                    <span className="strip-label">Years of Excellence</span>
-                    <span className="strip-val">14<sup>+</sup></span>
-                </div>
-
-                <div className="strip-item">
-                    <span className="strip-dot" />
-                    <span className="strip-label">Projects Delivered</span>
-                    <span className="strip-val">200<sup>+</sup></span>
-                </div>
-
-                <div className="strip-item">
-                    <span className="strip-dot" />
-                    <span className="strip-label">Happy Clients</span>
-                    <span className="strip-val">98<sup>%</sup></span>
-                </div>
-
-                <div className="strip-item">
-                    <span className="strip-location">Palakkad, Kerala</span>
-                </div>
-            </div> */}
         </>
     );
 }
